@@ -1,13 +1,10 @@
-package app.util;
+package app.services;
 
 import app.model.Pair;
-import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-@Component
 public class EmailSender {
 
     private static final String EMAIL_TEMPLATE = "Your next coffee buddy is %s at %s";

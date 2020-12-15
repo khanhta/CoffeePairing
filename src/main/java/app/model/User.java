@@ -59,4 +59,12 @@ public class User extends AuditModel {
     public void setActive(boolean active) {
         isActive = active;
     }
+
+    public Date getLastMeetupAt() {
+        return lastMeetupAt;
+    }
+
+    public void setLastMeetupAt(Date lastMeetupAt) {
+        this.lastMeetupAt = lastMeetupAt;
+    }
 }

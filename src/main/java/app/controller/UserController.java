@@ -4,13 +4,11 @@ import app.model.Preference;
 import app.model.Timeslot;
 import app.model.User;
 import app.repository.PreferenceRepository;
-import app.util.ResourceNotFoundException;
+import app.services.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import app.repository.UserRepository;
-
-import java.util.List;
 
 @Controller
 public class UserController {

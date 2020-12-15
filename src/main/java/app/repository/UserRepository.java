@@ -13,6 +13,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
             "WHERE p.TIMESLOT_ID IN (SELECT TIMESLOT_ID FROM Preferences WHERE USER_ID = :userID)" +
             " AND p.USER_ID NOT IN (SELECT User1 FROM Pairs WHERE User2 = :userID) " +
             " AND p.USER_ID NOT IN (SELECT User2 FROM Pairs WHERE User1 = :userID)" +
-            " AND u.ID != :userID", nativeQuery = true)
+            " AND u.ID != :userID" +
+            " ORDER BY LAST_MEETUP_AT ASC", nativeQuery = true)
     public User getFarthestMeetupUserWithSamePreferenceNotMeetBeforeWithUserId(Long userID);
 }

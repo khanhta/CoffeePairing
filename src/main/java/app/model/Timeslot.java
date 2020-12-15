@@ -1,6 +1,7 @@
 package app.model;
 
 import javax.persistence.*;
+import java.util.Calendar;
 
 @Entity
 @Table(name="Timeslots")

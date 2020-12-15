@@ -1,4 +1,4 @@
-package app.util;
+package app.services;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

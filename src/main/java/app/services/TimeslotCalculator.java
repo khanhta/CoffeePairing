@@ -1,12 +1,10 @@
-package app.util;
+package app.services;
 
 import app.model.Timeslot;
-import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
 import java.util.Date;
 
-@Component
 public class TimeslotCalculator {
 
     public Date getDateByTimeslot(Timeslot timeslot) {

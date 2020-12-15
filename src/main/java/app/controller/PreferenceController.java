@@ -3,7 +3,7 @@ package app.controller;
 import app.model.Preference;
 import app.repository.PreferenceRepository;
 import app.repository.UserRepository;
-import app.util.ResourceNotFoundException;
+import app.services.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
