@@ -1,8 +1,10 @@
 package app.model;
 
 import com.sun.istack.NotNull;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,6 +21,10 @@ public class User extends AuditModel {
 
     @NotNull
     private String email;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "last_meetup_at", nullable = false, updatable = true)
+    private Date lastMeetupAt = new Date(0);
 
     private boolean isActive;
 

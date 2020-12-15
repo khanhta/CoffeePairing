@@ -22,18 +22,18 @@ public class UserController {
 
     @PostMapping(path="/users/add")
     public @ResponseBody
-    User addNewRecord (@RequestParam String name,
-                       @RequestParam String email,
-                       @RequestParam String timeslots) {
+    User addNewRecord (@RequestBody String name,
+                       @RequestBody String email,
+                       @RequestBody Timeslot[] timeslots) {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setActive(true);
         userRepository.save(user);
 
-        for (String timeslotOrd : timeslots.split(",")) {
+        for (Timeslot timeslot : timeslots) {
             Preference preference = new Preference();
-            preference.setTimeslot(Timeslot.getTimeslotByString(Integer.valueOf(timeslotOrd)));
+            preference.setTimeslot(timeslot);
             preference.setUser(user);
             preferenceRepository.save(preference);
         }

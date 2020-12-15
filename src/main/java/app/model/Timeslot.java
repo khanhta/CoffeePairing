@@ -1,21 +1,49 @@
 package app.model;
 
-import java.util.Map;
+import javax.persistence.*;
 
-public enum Timeslot {
-    WED_1630("Wed 1630 EST"),
-    THU_1630("Thu 1630 EST");
+@Entity
+@Table(name="Timeslots")
+public class Timeslot extends AuditModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String description;
-    Timeslot(String description) {
-        this.description = description;
+    @Column(name = "DAY_OF_WEEK", nullable = false)
+    private int dayOfWeek;
+
+    @Column(name = "hhmm", nullable = false)
+    private String hhmm;
+
+    public Long getId() {
+        return id;
     }
 
-    public static Timeslot getTimeslotByString(int timeslotOrd) {
-        return Timeslot.values()[timeslotOrd];
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    /** Return DAY_OF_WEEK */
+    public int getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(int dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
+    public String getHour() {
+        return hhmm.split(":")[0];
+    }
+
+    public String getMinute() {
+        return hhmm.split(":")[1];
+    }
+
+    public void setHhmm(String hhmm) {
+        if (!hhmm.contains(":")) {
+            throw new IllegalArgumentException("Invalid format for time. Expected hh:mm, received " + hhmm);
+        }
+        this.hhmm = hhmm;
     }
 }

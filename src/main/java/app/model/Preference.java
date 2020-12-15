@@ -18,6 +18,9 @@ public class Preference extends AuditModel {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name="timeslot_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Timeslot timeslot;
 
     public Long getId() {
